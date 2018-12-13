@@ -81,10 +81,14 @@ namespace AppInsertDataToDB
                             role = regexRole.Match(item).Value.Trim(new char[] { '(', ')' });
                             personName = regexRole.Replace(personName, string.Empty).Trim(new char[] { ' ' });
                         }
-                        if (role!="")
-                            film.Person.Add(new PersonAndRole() { Name = personName, Role = role });
-                        else
-                            film.Person.Add(new PersonAndRole() { Name = personName, Role = "Writer" });
+                    if (role != "")
+                    {
+                        string x = role[0].ToString().ToUpper();
+                        x += role.Substring(1);
+                        film.Person.Add(new PersonAndRole() { Name = personName, Role = x });
+                    }
+                    else
+                        film.Person.Add(new PersonAndRole() { Name = personName, Role = "Writer" });
                     }
                     //актеры
                     splitdata = Data[8].Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
