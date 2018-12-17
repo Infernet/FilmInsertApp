@@ -12,7 +12,7 @@ namespace AppInsertDataToDB.Classes
         public int YearReleaseWorld{ get; set; }
         public string Rated{ get; set; }
         public DateTime Released{ get; set; }
-        public string RunTime{ get; set; }
+        public int RunTime{ get; set; }
         public string Plot{ get; set; }
         public double RatingValue{ get; set; }
         public int Metascore{ get; set; }
@@ -37,6 +37,31 @@ namespace AppInsertDataToDB.Classes
             Production = new List<string>();
             Language = new List<string>();
             Person = new List<PersonAndRole>();
+            Released = default(DateTime);
+            DVD = default(DateTime);
+        }
+
+        public void Reset()
+        {
+            Title = String.Empty;
+            YearReleaseWorld = 0;
+            Rated = String.Empty;
+            Released = default(DateTime);
+            RunTime = 0;
+            Plot = String.Empty;
+            RatingValue = 0.0;
+            Metascore = 0;
+            ImdbVotes = 0;
+            BoxOffice = 0;
+            DVD = default(DateTime);
+            WebSite = String.Empty;
+            Awards = String.Empty;
+            Poster = String.Empty;
+            Genre.Clear();
+            Country.Clear();
+            Production.Clear();
+            Language.Clear();
+            Person.Clear();
         }
     }
 }
