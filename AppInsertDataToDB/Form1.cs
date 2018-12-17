@@ -89,28 +89,10 @@ namespace AppInsertDataToDB
                     string role = "";
                     if (regexRole.IsMatch(item))
                     {
-<<<<<<< HEAD
                         role = regexRole.Match(item).Value.Trim(new char[] { '(', ')' });
                         string roleFirstSymbol = role[0].ToString().ToUpper();
                         role = roleFirstSymbol + role.Remove(0, 1);
                         personName = regexRole.Replace(personName, string.Empty).Trim(new char[] { ' ' });
-=======
-                        string personName = item;
-                        string role = "";
-                        if(regexRole.IsMatch(item))
-                        {
-                            role = regexRole.Match(item).Value.Trim(new char[] { '(', ')' });
-                            personName = regexRole.Replace(personName, string.Empty).Trim(new char[] { ' ' });
-                        }
-                    if (role != "")
-                    {
-                        string x = role[0].ToString().ToUpper();
-                        x += role.Substring(1);
-                        film.Person.Add(new PersonAndRole() { Name = personName, Role = x });
-                    }
-                    else
-                        film.Person.Add(new PersonAndRole() { Name = personName, Role = "Writer" });
->>>>>>> 3f41b4ff2e5f03d3f57f506d7fba2746f005eca3
                     }
                     if (role != "")
                         film.Person.Add(new PersonAndRole() { Name = personName, Role = role });
